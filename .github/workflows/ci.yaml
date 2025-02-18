@@ -4,12 +4,12 @@ on: push
 
 jobs:
   linting:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
-    # strategy:
-    #   matrix:
-    #     os: [ubuntu-latest, windows-latest, macos-latest]
-    #     version: ['3.9', '3.10']
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        version: ['3.9', '3.10']
 
     steps:
       - name: code checkout
